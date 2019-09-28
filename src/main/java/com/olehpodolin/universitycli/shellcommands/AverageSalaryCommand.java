@@ -14,14 +14,10 @@ public class AverageSalaryCommand {
         this.departmentService = departmentService;
     }
 
-    @ShellMethod("Displaying average salary for department")
+    @ShellMethod(value = "Displaying average salary for department",
+            key = "Show the average salary for department")
     public String showAverageSalaryForDepartment(@ShellOption({"--departmentName"}) String departmentName) {
         return String.format("The average salary of %s is %s", departmentName,
                                             departmentService.getAverageSalary(departmentName));
     }
 }
-
-/*
-3. Show the average salary for department {department_name}.
-        Answer: The average salary of {department_name} is {average_salary}
-*/

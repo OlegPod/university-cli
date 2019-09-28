@@ -2,7 +2,6 @@ package com.olehpodolin.universitycli.domain;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -67,10 +66,5 @@ public class Lector {
                 getSalary().equals(lector.getSalary()) &&
                 getDepartments().equals(lector.getDepartments()) &&
                 getDegree() == lector.getDegree();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getFirstAndLastName(), getSalary(), getDepartments(), getDegree());
     }
 }

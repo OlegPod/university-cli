@@ -14,14 +14,10 @@ public class CountOfEmployeeCommand {
         this.departmentService = departmentService;
     }
 
-    @ShellMethod("Displaying count of employee for department")
+    @ShellMethod(value = "Displaying count of employee for department",
+            key = "Show count of employee for")
     public String showCountOfEmployee(@ShellOption({"--departmentName"}) String departmentName) {
         return String.format("Total amount of employee in %s are %d peoples",
-                                            departmentName, departmentService.getTotalEmployee());
+                                            departmentName, departmentService.getTotalEmployee(departmentName));
     }
 }
-
-/*
-4. Show count of employee for {department_name}.
-        Answer: {employee_count}
-*/

@@ -2,7 +2,6 @@ package com.olehpodolin.universitycli.domain;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -66,10 +65,5 @@ public class Department {
                 getName().equals(that.getName()) &&
                 getLectors().equals(that.getLectors()) &&
                 getHead().equals(that.getHead());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getName(), getLectors(), getHead());
     }
 }

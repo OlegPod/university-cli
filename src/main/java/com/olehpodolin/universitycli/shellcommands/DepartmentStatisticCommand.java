@@ -1,6 +1,7 @@
 package com.olehpodolin.universitycli.shellcommands;
 
 import com.olehpodolin.universitycli.services.DepartmentService;
+import com.olehpodolin.universitycli.shell.InputReader;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellOption;
@@ -10,23 +11,22 @@ public class DepartmentStatisticCommand {
 
     private DepartmentService departmentService;
 
-    public DepartmentStatisticCommand(DepartmentService departmentService) {
+    private InputReader inputReader;
+
+    public DepartmentStatisticCommand(DepartmentService departmentService, InputReader inputReader) {
         this.departmentService = departmentService;
+        this.inputReader = inputReader;
     }
 
-    @ShellMethod("Show department statistic")
-    public String showDepartmentNameStatistic(@ShellOption({"--departmentName"}) String departmentName) {
+    @ShellMethod(value = "Show department statistic", key = "Show")
+    public String showDepartmentNameStatistic(@ShellOption(arity = 2) String input) {
+
+        String departmentName = inputReader.getDepartmentFromInput(input);
+
         return String.format(
                 "Assistants - %d" + "\n" + "Associate professors - %d" + "\n" + "Professors - %d",
-                departmentService.getAssistantsCount(), departmentService.getAssociateProfessorsCount(),
-                                            departmentService.getProfessorsCount());
+                departmentService.getAssistantsCount(departmentName), departmentService.getAssociateProfessorsCount(departmentName),
+                departmentService.getProfessorsCount(departmentName));
     }
 }
-
-/*
-2.Show {department_name} statistic.
-        Answer: assistans - {assistams_count}.
-        associate professors - {associate_professors_count}
-        professors -{professors_count}
-*/
 

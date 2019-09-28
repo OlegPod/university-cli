@@ -1,13 +1,11 @@
 package com.olehpodolin.universitycli.services;
 
-import com.olehpodolin.universitycli.domain.Lector;
-
 public interface DepartmentService {
 
-    Lector getHeadOfDepartment(String departmentName);
+    String getHeadOfDepartment(String departmentName);
     Double getAverageSalary(String departmentName);
-    Integer getTotalEmployee();
-    Integer getAssistantsCount();
-    Integer getAssociateProfessorsCount();
-    Integer getProfessorsCount();
+    Integer getTotalEmployee(String departmentName);
+    Long getAssistantsCount(String departmentName);
+    Long getAssociateProfessorsCount(String departmentName);
+    Long getProfessorsCount(String departmentName);
 }

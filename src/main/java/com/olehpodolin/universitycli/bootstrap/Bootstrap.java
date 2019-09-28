@@ -35,71 +35,72 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         oleksandr.setFirstAndLastName("Oleksandr Sandoma");
         oleksandr.setDegree(Degree.PROFESSOR);
         oleksandr.setSalary(25345.99);
+        lectorRepository.save(oleksandr);
 
 
         Lector ivan = new Lector();
         ivan.setFirstAndLastName("Ivan Petrenko");
         ivan.setDegree(Degree.ASSOCIATE_PROFESSOR);
         ivan.setSalary(20543.53);
+        lectorRepository.save(ivan);
 
 
         Lector ostap = new Lector();
         ostap.setFirstAndLastName("Ostap Kostantynov");
         ostap.setDegree(Degree.ASSISTANT);
         ostap.setSalary(16356.00);
-
+        lectorRepository.save(ostap);
 
         Lector petro = new Lector();
         petro.setFirstAndLastName("Petro Ivanov");
         petro.setDegree(Degree.PROFESSOR);
         petro.setSalary(32000.00);
+        lectorRepository.save(petro);
 
 
         Lector vadym = new Lector();
         vadym.setFirstAndLastName("Vadym Dmytrenko");
         vadym.setDegree(Degree.ASSISTANT);
         vadym.setSalary(16442.64);
-
+        lectorRepository.save(vadym);
 
         Lector ihor = new Lector();
         ihor.setFirstAndLastName("Ihor Mykh");
         ihor.setDegree(Degree.ASSOCIATE_PROFESSOR);
         ihor.setSalary(23753.53);
+        lectorRepository.save(ihor);
 
 
-        Department computerScience = new Department();
-        computerScience.setName("Computer Science");
-        computerScience.setHead(petro);
-        computerScience.addLector(petro).addLector(vadym).addLector(ihor);
+        Department chemistry = new Department();
+        chemistry.setName("Chemistry");
+        chemistry.setHead(oleksandr);
+        chemistry.addLector(petro).addLector(vadym).addLector(ihor);
 
         Department accounting = new Department();
         accounting.setName("Accounting");
-        accounting.setHead(oleksandr);
+        accounting.setHead(ivan);
         accounting.addLector(oleksandr).addLector(ivan).addLector(ostap);
 
         Department advertising = new Department();
         advertising.setName("Advertising");
-        advertising.setHead(ihor);
-        advertising.addLector(ihor).addLector(ostap).addLector(petro);
+        advertising.setHead(ostap);
+        advertising.addLector(ihor).addLector(ostap).addLector(petro).addLector(ivan);
 
-        Department aerospaceStudies = new Department();
-        aerospaceStudies.setName("Aerospace Studies");
-        aerospaceStudies.setHead(oleksandr);
-        aerospaceStudies.addLector(oleksandr).addLector(ihor).addLector(vadym);
+        Department biology = new Department();
+        biology.setName("Biology");
+        biology.setHead(petro);
+        biology.addLector(oleksandr).addLector(ihor).addLector(vadym);
 
-        Department biologicalSciences = new Department();
-        biologicalSciences.setName("Biological Sciences");
-        biologicalSciences.setHead(vadym);
-        biologicalSciences.addLector(vadym).addLector(ostap).addLector(oleksandr);
+        Department psychology = new Department();
+        psychology.setName("Psychology");
+        psychology.setHead(vadym);
+        psychology.addLector(vadym).addLector(ostap).addLector(oleksandr);
 
-        departmentRepository.save(computerScience);
+        departmentRepository.save(chemistry);
         departmentRepository.save(accounting);
         departmentRepository.save(advertising);
-        departmentRepository.save(aerospaceStudies);
-        departmentRepository.save(biologicalSciences);
-
-
-
+        departmentRepository.save(biology);
+        departmentRepository.save(psychology);
 
     }
 }

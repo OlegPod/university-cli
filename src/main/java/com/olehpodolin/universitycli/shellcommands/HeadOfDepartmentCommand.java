@@ -14,14 +14,9 @@ public class HeadOfDepartmentCommand {
         this.departmentService = departmentService;
     }
 
-    @ShellMethod(value = "Displays who is the head of a department", key = "Who is head of department")
+    @ShellMethod(value = "Displays who is the head of a department", key = "Who is head of")
     public String showHeadOfDepartment(@ShellOption({"--departmentName"}) String departmentName) {
-        return String.format("Head of %s  is %s",
+        return String.format("Head of %s is %s",
                                             departmentName, departmentService.getHeadOfDepartment(departmentName));
     }
 }
-
-/*
-1.Who is head of department {department_name}
-        Answer: Head of {department_name} department is {head_of_department_name}
-*/

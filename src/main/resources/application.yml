@@ -17,4 +17,4 @@ spring:
 #            create-source: metadata
 #            scripts:
 #              action: create
-#              create-target: oleh_database_create.sql
+#              create-target: university_database_schema.sql
