@@ -62,7 +62,7 @@ docker run --name mysqldb -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mysq
 ```
 **Connect to mysql and run as root user**
 
-* Create Database
+* Create Database and Select Database
 ```
 CREATE DATABASE university;
 ```
